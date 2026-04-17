@@ -67,3 +67,11 @@ services:
       - "8081:8081"
     environment:
       KAFKA_BROKER: kafka:29092
+
+  notification-service:
+    build: ./notification-service
+    container_name: notification-service
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_BROKER: kafka:29092
